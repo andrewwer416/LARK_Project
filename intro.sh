@@ -1,24 +1,22 @@
 #!/usr/bin/bash
 # EDIT WORDS!!!!!!
 # Intro Phase: select an orb
-
+export head="$PWD"
+export my_stats="$PWD"/Data/my_stats.txt
+export enemy_stats="$PWD"/Data/enemy_stats.txt
 echo "You awake. 3 Orbs green red blue."
-read -p "Please make a choice" opt
-case $opt in
-  Green|green)
-    echo "You earth"
-    mv .Green Green
-    echo "Use cd Green to go into the Realm of earth"
-  ;;
-  Blue|blue)
-    echo "You heaven"
-    mv .Blue Blue
-    echo "Use cd Blue to go into the Realm of heaven"
-  ;;
-  Red|red)
-    echo "You hell"
-    mv .Red Red
-    echo "Use cd Red to go into the Realm of hell"
-  ;;
-esac
-exit
+while true
+do
+	read -p "Please make a choice" orb
+	case $orb in
+		Green|green|Blue|blue|Red|red)
+			echo "You earth"
+			mv .Orb Orb
+			echo "Use cd Orb to grab the orb"
+			return
+			;;
+		*)
+			echo "Please enter valid orb"
+	esac
+done
+return
