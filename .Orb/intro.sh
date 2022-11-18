@@ -1,12 +1,11 @@
 #!/usr/bin/bash
-
 charopt=$(( $RANDOM % 2))
 case $orb in
 	Blue|blue)
 		echo "As you embrace the blue orb \
 you begin to ascend. Rays from \
 an unknown origin gleam around \
-you. A world 002ing with \
+you. A world oozing with \
 happiness and prosperity presents \
 itself before you. \
 Welcome to Heaven."
@@ -59,7 +58,8 @@ Welcome to the underworld."
 		sed '/Cerberus/d' $head/Characters/Names.txt
 	;;
 esac
-gawk '/"$character_name"/' $head/Characters/Characters.txt >> $stats
+cat $characters | grep $character_name > $my_stats
+cat $characters | grep $team_name > $enemy_stats
 echo "Ah $character_name, you finally woke up. You don't remember me?\
  My name is $team_name. I found you lying on the beach passed out. \
 Ever since this war started, shit hit the fan fast. It's just battle after battle. \

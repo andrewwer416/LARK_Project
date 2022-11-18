@@ -4,10 +4,12 @@
 export head="$PWD"
 export my_stats="$PWD"/Data/my_stats.txt
 export enemy_stats="$PWD"/Data/enemy_stats.txt
+export moves="$PWD"/Characters/Moves.txt
+export characters="$PWD"/Characters/Character.txt
 echo "You awake. 3 Orbs green red blue."
 while true
 do
-	read -p "Please make a choice" orb
+	read -p "Please make a choice: " orb
 	case $orb in
 		Green|green|Blue|blue|Red|red)
 			echo "You earth"
