@@ -1,4 +1,10 @@
 #!/usr/bin/bash
+battle1=0
+if [ $tut_done -eq 1 ]; then
+	echo "$team_name: Alright, now that you're all warmed up, lets find our way back to base. Let's head into that field over there by typing 'cd Field'."
+	mv .Field Field
+	return
+fi
 charopt=$(( $RANDOM % 2))
 case $orb in
 	Blue|blue)
@@ -17,8 +23,8 @@ Welcome to Heaven."
 			export character_name="Ares"
 			export team_name="Wukong"
 		fi
-		sed -i '/Wukong/d' $head/Characters/Names.txt
-		sed -i '/Ares/d' $head/Characters/Names.txt
+		sed -i '/Wukong/d' $head/.Characters/Names.txt
+		sed -i '/Ares/d' $head/.Characters/Names.txt
 	;;
 	Green|green)
 		echo "As you embrace the green orb \
@@ -36,8 +42,8 @@ Welcome to Earth."
 			export character_name="King_Arthur"
 			export team_name="Icarus"
 		fi
-		sed '/King_Arthur/d' $head/Characters/Names.txt
-		sed '/Icarus/d' $head/Characters/Names.txt
+		sed -i '/King_Arthur/d' $head/.Characters/Names.txt
+		sed -i '/Icarus/d' $head/.Characters/Names.txt
 	;;
 	Red|red)
 		echo "As you embrace the red orb \
@@ -54,13 +60,13 @@ Welcome to the underworld."
 			export character_name="Cerberus"
 			export team_name="Thanatos"
 		fi
-		sed '/Thanatos/d' $head/Characters/Names.txt
-		sed '/Cerberus/d' $head/Characters/Names.txt
+		sed -i '/Thanatos/d' $head/.Characters/Names.txt
+		sed -i '/Cerberus/d' $head/.Characters/Names.txt
 	;;
 esac
 cat $characters | grep $character_name > $my_stats
 cat $characters | grep $team_name > $enemy_stats
-echo "Ah $character_name, you finally woke up. You don't remember me?\
+echo "???: Ah $character_name, you finally woke up. You don't remember me?\
  My name is $team_name. I found you lying on the beach passed out. \
 Ever since this war started, shit hit the fan fast. It's just battle after battle. \
 Well, we have to make our way back to camp."
@@ -69,13 +75,16 @@ while true
 	do
 	case $inp in
 		N|n)
-			echo "Use cd Tutorial to start the tutorial"
+			echo "$team_name: Guess we better hit the training ground. Type 'cd Tutorial' to start the tutorial"
 			mv .Tutorial Tutorial
 			return
 		;;
 		Y|y)
-			echo "Use cd Battle1 to start your first battle"
-			mv .Battle1 Battle1
+			echo "$team_name: Perfect! Now let us make our way back to base, Type 'cd Field' whenever you're ready"
+			if [ -e .Field ]; then
+				mv .Field Field
+			fi
+			battle1=0
 			return
 		;;
 		*)
