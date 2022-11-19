@@ -1,6 +1,0 @@
-Wukong 60 Cloud_Walk Staff_Spin Vanish
-Ares 80 Chariot_Charge War_Hammer Phalanx
-Thanatos 70 Eternal_Slumber Scythe_Slash Among_The_Dead
-Cerberus 100 Gate_Of_Hell Triple_Bite Howl 
-Icarus 50 Sky's_The_Limit Winged_Slash Too_Close
-King_Authur 90 Holy_Grail Pendragon_Strike Round_Table
