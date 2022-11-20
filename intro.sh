@@ -10,6 +10,7 @@ export characters="$PWD"/.Characters/Character.txt
 export Cerberus="$PWD"/.Characters/Cerberus
 export RED='\033[0;31m'
 export NC='\033[0m'
+export BLUE='\033[0;34m'
 echo -e "${RED}You awaken within a void. You can see nothing but three orbs rotating around you. As you reach your non-existent hand out to the orbs you feel struggle and anguish within each. The red orb feels warm but foreboding. \
 The green orb is full of hope and promise. The blue orb seems to hold plentiful wealth. Fate calls you to choose one of these orbs.${NC}"
 tut_done=0

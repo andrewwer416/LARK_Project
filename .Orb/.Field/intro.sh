@@ -3,9 +3,9 @@ if [ $battle1 -eq 1 ]; then
 	echo "Start the fight already!"
 	return
 fi
-echo "$team_name: Shit! Get down! Enemies ahead. You take the one on the left and I'll take the one on the right."
-echo "*As you approach, a twig snaps beneath you*"
-echo "$team_name: So much for a surprise attack..."
+echo -e "${BLUE}$team_name${NC}: Shit! Get down! Enemies ahead. You take the one on the left and I'll take the one on the right."
+echo -e "${RED}As you approach, a twig snaps beneath you${NC}"
+echo -e "${BLUE}$team_name${NC}: So much for a surprise attack..."
 charopt=$(( $RANDOM % 2))
 if [ $charopt -eq 0 ]; then
 	enem1_name=`sed -n '3p' $head/.Characters/Names.txt`
@@ -22,7 +22,7 @@ if [ $charopt -eq 0 ]; then
 else
 	enemy_name="$enem2_name"
 fi
-echo "$enemy_name: You $clan_name bastards won't make it out of here alive!"
+echo -e "${BLUE}$enemy_name${NC}: You ${BLUE}$clan_name${NC} bastards won't make it out of here alive!"
 cat $characters | grep $character_name > $my_stats
 cat $characters | grep $enemy_name > $enemy_stats
 battle1=1

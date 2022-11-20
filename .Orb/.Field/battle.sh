@@ -46,7 +46,11 @@ do
 			5)
 			echo
 			echo "Your available moves are:"
-			cat $moves | grep -e $usr_m1 -e $usr_m2 -e $usr_m3 
+			usr_moves=($(grep -e $usr_m1 -e $usr_m2 -e $usr_m3 $moves))
+			printf "%-16s %-5s %-8s %-100s\n" "Move" "Power" "Accuracy" "Description"
+			printf "%-16s %-5s %-8s %-100s\n" "${usr_moves[0]}" "${usr_moves[1]}" "${usr_moves[2]}" "${usr_moves[3]}"
+			printf "%-16s %-5s %-8s %-100s\n" "${usr_moves[4]}" "${usr_moves[5]}" "${usr_moves[6]}" "${usr_moves[7]}"
+			printf "%-16s %-5s %-8s %-100s\n" "${usr_moves[8]}" "${usr_moves[9]}" "${usr_moves[10]}" "${usr_moves[11]}"
 			;;
 			*)
 			echo "Please enter a valid option"
@@ -124,7 +128,7 @@ else
 	
 	echo "*A staircase appears before you as you touch the locket*"
 	echo "$team_name: \"Far outside the realm of our everyday lives.\" That could have something to do with this \
-	staircase. I say we take a trip up there."
+staircase. I say we take a trip up there."
 fi
 if [ -e .Sky ]; then
 	mv .Sky Sky
