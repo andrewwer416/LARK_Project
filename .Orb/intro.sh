@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 battle1=0
 if [ $tut_done -eq 1 ]; then
-	echo "$team_name: Alright, now that you're all warmed up, lets find our way back to base. Let's head into that field over there by typing 'cd Field'."
+	echo "$team_name: Alright, now that you're all warmed up, lets start our journey. Let's head the field by typing 'cd Field'."
 	mv .Field Field
 	return
 fi
@@ -25,6 +25,7 @@ Welcome to Heaven."
 		fi
 		sed -i '/Wukong/d' $head/.Characters/Names.txt
 		sed -i '/Ares/d' $head/.Characters/Names.txt
+		export clan_name="Divine"
 	;;
 	Green|green)
 		echo "As you embrace the green orb \
@@ -44,6 +45,7 @@ Welcome to Earth."
 		fi
 		sed -i '/King_Arthur/d' $head/.Characters/Names.txt
 		sed -i '/Icarus/d' $head/.Characters/Names.txt
+		export clan_name="Heroic"
 	;;
 	Red|red)
 		echo "As you embrace the red orb \
@@ -55,32 +57,33 @@ Anguished screams sound out around. \
 Welcome to the underworld."
 		if [ $charopt == 0 ]; then
 			export character_name="Thanatos"
-			export team_name="Cerberus"
+			export team_name="Apollyon"
 		elif [ $charopt == 1 ]; then
-			export character_name="Cerberus"
+			export character_name="Apollyon"
 			export team_name="Thanatos"
 		fi
 		sed -i '/Thanatos/d' $head/.Characters/Names.txt
 		sed -i '/Cerberus/d' $head/.Characters/Names.txt
+		export clan_name="Demonic"
 	;;
 esac
 cat $characters | grep $character_name > $my_stats
 cat $characters | grep $team_name > $enemy_stats
 echo "???: Ah $character_name, you finally woke up. You don't remember me?\
- My name is $team_name. I found you lying on the beach passed out. \
-Ever since this war started, shit hit the fan fast. It's just battle after battle. \
-Well, we have to make our way back to camp."
+ My name is $team_name. When you passed out after the last fight, I took you back to camp. \
+Ever since this war started, shit hit the fan fast. The battles haven't stopped coming our way. \
+Whatever the case, we need to get our hands on that totem. We need to go towards that field over there."
 read -p "Do you still remember how to fight? [Y/n]" inp
 while true
 	do
 	case $inp in
 		N|n)
-			echo "$team_name: Guess we better hit the training ground. Type 'cd Tutorial' to start the tutorial"
+			echo "$team_name: Guess we better hit the training ground first. Type 'cd Tutorial' to start the tutorial"
 			mv .Tutorial Tutorial
 			return
 		;;
 		Y|y)
-			echo "$team_name: Perfect! Now let us make our way back to base, Type 'cd Field' whenever you're ready"
+			echo "$team_name: Perfect! Let's head into the field then. Type 'cd Field' whenever you're ready"
 			if [ -e .Field ]; then
 				mv .Field Field
 			fi

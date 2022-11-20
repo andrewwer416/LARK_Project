@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-if [ $battle1 -eq 0 ]; then
+if [ $battle3 -eq 0 ]; then
 	echo "Please type 'source intro.sh' before coming into this battle."
 	return
 fi
@@ -95,6 +95,11 @@ do
 		if [ $(( $RANDOM % 100)) -lt $usr_acc ]; then
 			((enem_hp -= $usr_dmg))
 			echo "You dealt $usr_dmg damage with $usr_move!"
+			if [ -e $inventory/Locket ]; then
+				if [ $enem_hp -le 0 ]; then
+					break
+				fi
+			fi
 		else
 			echo "$enemy_name has dodged your attack!"
 		fi
@@ -110,25 +115,15 @@ do
 	fi
 done
 if [ $usr_hp -le 0 ]; then
-echo "You were defeated. Type 'source battle.sh' to give it another shot"
-return
+echo "You were defeated. As expected when faced with a god in the flesh. Don't worry this isn't the end. \
+Though you've shown that you aren't physically capable of beating $enemy_name, there is a way to force him \
+out of the universe. Type 'rm \$Cerberus' to get rid of him for good. Once you're done, type 'source outro.sh' \
+to decide the fate of the Caduceus."
 else
-	echo "$team_name: *Panting* Whew. These guys were pretty tough. What is that shiny thing on the ground. You should go grab it."
-		if [ -e .Locket ]; then
-			mv .Locket Locket
-		fi
-	echo
-	echo "To add the item to your inventory, type 'mv Locket \$inventory'"
-	echo "To view the item once it is in your inventory type 'cat \$inventory/Locket'"
-	echo "If you ever forget what is in your inventory, you can type 'ls \$inventory'"
+	rm $Cerberus
+	echo -e "Congratulations! You somehow won an impossible battle. You will now replace Cerberus as \
+head of the universe. Type 'source outro.sh' to decide what to do with the Caduceus."
 	
-	echo "*A staircase appears before you as you touch the locket*"
-	echo "$team_name: \"Far outside the realm of our everyday lives.\" That could have something to do with this \
-	staircase. I say we take a trip up there."
 fi
-if [ -e .Sky ]; then
-	mv .Sky Sky
-fi
-	echo "Type 'cd Sky' to take the staircase."
-battle2=0
+
 

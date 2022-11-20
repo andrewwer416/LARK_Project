@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 if [ $battle2 -eq 0 ]; then
 	echo "Please type 'source intro.sh' before coming into this battle."
 	return
@@ -6,7 +7,6 @@ sed -i 's/\r$//' $my_stats
 sed -i 's/\r$//' $enemy_stats
 read -r _ usr_hp usr_m1 usr_m2 usr_m3 < $my_stats
 read -r _ enem_hp enem_m1 enem_m2 enem_m3 < $enemy_stats
-echo "$enemy_name: You won't make it past us alive!"
 team_block=0
 enem_block=0
 while [ $usr_hp -gt 0 -a $enem_hp -gt 0 ]
@@ -115,20 +115,54 @@ do
 	fi
 done
 if [ $usr_hp -le 0 ]; then
-echo "You were defeated. Type 'source battle.sh' to give it another shot"
+echo "You were defeated. Type 'source battle.sh' to give it another shot."
 else
-	echo -e "*A shiny object dangles out of $enemy_name's pocket*\n$team_name: Some guards these are. Giving up the precious key so easily. \
-	Let's take a look inside the island shall we?."
-	echo
-	echo "To add the item to your inventory, type 'mv Locket \$inventory'"
-	echo "To view the item once it is in your inventory type 'cat \$inventory/Locket'"
-	echo "If you ever forget what is in your inventory, you can type 'ls \$inventory'"
+	battle3=0
+	echo -e "*A shiny object dangles out of $enemy_name's pocket.*\n$team_name: Some guards these are. Giving up the precious key so easily. \
+Let's take a look inside the island shall we?"
+	if [ -e .Unknown ]; then
+		mv .Unknown Unknown
+	fi
 	
-	echo "*A staircase appears before you as you are bending down to inspect the item*"
-	echo "$team_name: I guess that's where we're heading next"
+	echo "*As you wander the clouds, you approach what seems to be an extremely worn down temple.*"
+	while true; do
+	read -p "$team_name: That place seems quite ominous, should we go inside? [Y/n]" opt
+	case $opt in
+		Y|y)
+			echo "*You and $team_name enter the temple. In front of you lies an orb that is pitch black*"
+			echo "$team_name: What is that thing? Do you think the scientists back at base could do \
+something with this? Whatever the case, we definitely need to take this back with us."
+			echo "*As $team_name goes to grab the orb he is thrown back. You hear a voice whispering, \
+but can't make out what it is saying*"
+			read -p "Would you like to touch the orb? [Y/n]" opt2
+			case $opt2 in
+				Y|y)
+					echo "Type 'cd Unknown' to grab the orb"
+					return
+				;;
+				N|n)
+					echo "*The voices get stronger and your vision begins to fade.*"
+					echo "$team_name: $character_name! IT WAS A TRICK!"
+					cd Unknown
+					echo "*You awake in a new area. Type 'source intro.sh' to take a look around.*"
+					return
+				;;
+				*)
+					echo "Please enter a valid selection."
+			esac
+			;;
+		N|n)
+			echo "*You begin to hear a loud shrieking and your vision fades.*"
+			echo "$team_name: $character_name! Shit! Not again!"
+			cd Unknown
+			echo "*You awake in a new area. Type 'source intro.sh' to take a look around.*"
+			return
+		;;
+		*)
+			echo "Please enter a valid selection."
+		;;
+	esac
+	done
 fi
-if [ -e .Void ]; then
-	mv .Void Void
-fi
-	echo "Type 'cd Sky' to take the staircase."
+
 
