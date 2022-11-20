@@ -13,7 +13,10 @@ if [ -e .Orb/Field ]; then
 	mv .Orb/Field .Orb/.Field
 fi
 if [ -e .Inventory/Locket ]; then
-	mv .Inventory/Locket .Orb/.Field/Locket
+	mv .Inventory/Locket .Orb/.Field/.Locket
+fi
+if [ -e .Orb/.Field/Locket ]; then
+	mv .Orb/.Field/Locket .Orb/.Field/.Locket
 fi
 if [ -e .Orb/.Field/Sky ]; then
 	mv .Orb/.Field/Sky .Orb/.Field/.Sky
