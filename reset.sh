@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 cp .Characters/.Names .Characters/Names.txt
+cp .Characters/.Cerberus .Characters/Cerberus
 echo -n "" > .Data/my_stats.txt
 echo -n "" > .Data/enemy_stats.txt
 if [ -e Orb ]; then
@@ -17,6 +18,9 @@ fi
 if [ -e .Orb/.Field/Sky ]; then
 	mv .Orb/.Field/Sky .Orb/.Field/.Sky
 fi
+if [ -e .Orb/.Field/.Sky/Unknown ]
+	mv .Orb/.Field/.Sky/Unknown .Orb/.Field/.Sky/.Unknown
+fi
 unset team_name
 unset character_name
 unset usr_m1
@@ -32,6 +36,7 @@ unset enem1_name
 unset enem2_name
 unset battle1
 unset battle2
+unset battle3
 unset opt
 unset usr_atk
 unset usr_dmg
@@ -43,4 +48,6 @@ unset enem_acc
 unset enem_move
 unset tut_done
 unset inp
+unset opt2
+unset real_name
 return
