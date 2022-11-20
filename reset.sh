@@ -18,7 +18,7 @@ fi
 if [ -e .Orb/.Field/Sky ]; then
 	mv .Orb/.Field/Sky .Orb/.Field/.Sky
 fi
-if [ -e .Orb/.Field/.Sky/Unknown ]
+if [ -e .Orb/.Field/.Sky/Unknown ]; then
 	mv .Orb/.Field/.Sky/Unknown .Orb/.Field/.Sky/.Unknown
 fi
 unset team_name
@@ -50,4 +50,6 @@ unset tut_done
 unset inp
 unset opt2
 unset real_name
+unset RED
+unset NC
 return
