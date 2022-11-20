@@ -1,6 +1,6 @@
-Wukong 85 Cloud_Walk Staff_Spin Vanish
-Ares 85 Chariot_Charge War_Hammer Phalanx
-Thanatos 85 Eternal_Slumber Scythe_Slash Among_The_Dead
-Apollyon 85 Blood_Whip Shriek Horn_Plow 
-Icarus 85 Sky's_The_Limit Winged_Slash Too_Close
-King_Arthur 85 Holy_Grail Pendragon_Strike Round_Table
+Wukong 80 Cloud_Walk Staff_Spin Vanish
+Ares 80 Chariot_Charge War_Hammer Phalanx
+Thanatos 80 Eternal_Slumber Scythe_Slash Among_The_Dead
+Apollyon 80 Blood_Whip Shriek Horn_Plow 
+Icarus 80 Sky's_The_Limit Winged_Slash Too_Close
+King_Arthur 80 Holy_Grail Pendragon_Strike Round_Table
