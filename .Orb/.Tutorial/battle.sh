@@ -5,6 +5,7 @@ sed -i 's/\r$//' $my_stats
 sed -i 's/\r$//' $enemy_stats
 read -r _ usr_hp usr_m1 usr_m2 usr_m3 < $my_stats
 read -r _ enem_hp enem_m1 enem_m2 enem_m3 < $enemy_stats
+((usr_hp+=5))
 echo -e "${BLUE}$enemy_name${NC}: Before we get to the real deal, I'm going to show you how to make your moves. \
 first, you will be prompted with options consisting of your moves. You will type a number corresponding to \
 the option you would like to select, then press enter. Try doing it now"

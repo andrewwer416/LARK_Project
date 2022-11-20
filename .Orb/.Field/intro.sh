@@ -22,7 +22,8 @@ if [ $charopt -eq 0 ]; then
 else
 	enemy_name="$enem2_name"
 fi
-echo -e "${BLUE}$enemy_name${NC}: You ${BLUE}$clan_name${NC} bastards won't make it out of here alive!"
+echo -e "${BLUE}$enemy_name${NC}: You $clan_name bastards won't make it out of here alive!"
 cat $characters | grep $character_name > $my_stats
 cat $characters | grep $enemy_name > $enemy_stats
+echo "Type 'source battle.sh' to begin combat."
 battle1=1

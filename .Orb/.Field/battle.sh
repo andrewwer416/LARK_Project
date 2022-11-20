@@ -7,12 +7,13 @@ sed -i 's/\r$//' $my_stats
 sed -i 's/\r$//' $enemy_stats
 read -r _ usr_hp usr_m1 usr_m2 usr_m3 < $my_stats
 read -r _ enem_hp enem_m1 enem_m2 enem_m3 < $enemy_stats
+((usr_hp+=5))
 team_block=0
 enem_block=0
 while [ $usr_hp -gt 0 -a $enem_hp -gt 0 ]
 do
 	echo
-	echo -e "Your health: $usr_hp\nEnemy health: $enem_hp"
+	echo -e "Your health: ${RED}$usr_hp${NC}\nEnemy health: ${RED}$enem_hp${NC}"
 	echo
 	while true
 	do
@@ -21,7 +22,7 @@ do
 \n3) $usr_m3\
 \n4) Block\
 \n5) Display Move Stats"
-		read -p "Select your move: " opt
+		read -p "$(echo -e ${RED}"Select your move: "${NC})" opt
 		case $opt in
 			1)
 			usr_move=$usr_m1
@@ -85,10 +86,10 @@ do
 	done
 	echo
 	if [ $enem_block -eq 1 -a $team_block -eq 0 ]; then
-		echo "$enemy_name blocked your attack!"
+		echo -e "${BLUE}$enemy_name${NC} blocked your attack!"
 		enem_block=0
 	elif [ $team_block -eq 1 -a $enem_block -eq 0 ]; then
-		echo "You blocked $enemy_name's attack!"
+		echo -e "You blocked ${BLUE}$enemy_name's${NC} attack!"
 		team_block=0
 	elif [ $team_block -eq 1 -a $enem_block -eq 1 ]; then
 		echo "You both tried to block!"
@@ -98,18 +99,18 @@ do
 		usr_acc="${usr_atk[2]}"
 		if [ $(( $RANDOM % 100)) -lt $usr_acc ]; then
 			((enem_hp -= $usr_dmg))
-			echo "You dealt $usr_dmg damage with $usr_move!"
+			echo -e "You dealt ${RED}$move_dmg${NC} damage with $usr_move!"
 		else
-			echo "$enemy_name has dodged your attack!"
+			echo -e "${BLUE}$enemy_name${NC} has dodged your attack!"
 		fi
 		enem_atk=($(grep $enem_move $moves))
-		enem_dmg="${enem_atk[1]}"
-		enem_acc="${enem_atk[2]}"
+		enem_dmg="${move[1]}"
+		enem_acc="${move[2]}"
 		if [ $(( $RANDOM % 100)) -lt $enem_acc ]; then
 			((usr_hp -= $enem_dmg))
-			echo "$enemy_name dealt $enem_dmg damage with $enem_move!"
+			echo -e "${BLUE}$enemy_name${NC} dealt $enem_dmg damage with $enem_move!"
 		else
-			echo "You dodged $enemy_name's attack!"
+			echo -e "You dodged ${BLUE}$enemy_name's${NC} attack!"
 		fi
 	fi
 done
@@ -117,18 +118,18 @@ if [ $usr_hp -le 0 ]; then
 echo "You were defeated. Type 'source battle.sh' to give it another shot"
 return
 else
-	echo "$team_name: *Panting* Whew. These guys were pretty tough. What is that shiny thing on the ground. You should go grab it."
+	echo
+	echo -e "${BLUE}$team_name${NC}: *Panting* Whew. These guys were pretty tough. What is that shiny thing on the ground. You should go grab it."
 		if [ -e .Locket ]; then
 			mv .Locket Locket
 		fi
-	echo
 	echo "To add the item to your inventory, type 'mv Locket \$inventory'"
 	echo "To view the item once it is in your inventory type 'cat \$inventory/Locket'"
 	echo "If you ever forget what is in your inventory, you can type 'ls \$inventory'"
 	
-	echo "*A staircase appears before you as you touch the locket*"
-	echo "$team_name: \"Far outside the realm of our everyday lives.\" That could have something to do with this \
-staircase. I say we take a trip up there."
+	echo -e "${RED}A staircase appears before you as you touch the locket${NC}"
+	echo -e "${BLUE}$team_name${NC}: \"Far outside the realm of our everyday lives.\" \
+That could have something to do with this staircase. I say we take a trip up there."
 fi
 if [ -e .Sky ]; then
 	mv .Sky Sky
