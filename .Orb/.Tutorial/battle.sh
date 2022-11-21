@@ -161,8 +161,8 @@ do
 			echo -e "${BLUE}$enemy_name${NC} has dodged your attack!"
 		fi
 		enem_atk=($(grep $enem_move $moves))
-		enem_dmg="${move[1]}"
-		enem_acc="${move[2]}"
+		enem_dmg="${enem_atk[1]}"
+		enem_acc="${enem_atk[2]}"
 		if [ $(( $RANDOM % 100)) -lt $enem_acc ]; then
 			((usr_hp -= $enem_dmg))
 			echo -e "${BLUE}$enemy_name${NC} dealt $enem_dmg damage with $enem_move!"
