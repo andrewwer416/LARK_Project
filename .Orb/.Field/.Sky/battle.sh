@@ -84,33 +84,48 @@ do
 			;;
 		esac
 	done
-	echo
-	if [ $enem_block -eq 1 -a $team_block -eq 0 ]; then
-		echo -e "${BLUE}$enemy_name${NC} blocked your attack!"
-		enem_block=0
-	elif [ $team_block -eq 1 -a $enem_block -eq 0 ]; then
-		echo -e "You blocked ${BLUE}$enemy_name's${NC} attack!"
-		team_block=0
-	elif [ $team_block -eq 1 -a $enem_block -eq 1 ]; then
+	echo	
+	if [ $team_block -eq 1 -a $enem_block -eq 1 ]; then
 		echo "You both tried to block!"
 	else
-		usr_atk=($(grep $usr_move $moves))
-		usr_dmg="${usr_atk[1]}"
-		usr_acc="${usr_atk[2]}"
-		if [ $(( $RANDOM % 100)) -lt $usr_acc ]; then
-			((enem_hp -= $usr_dmg))
-			echo -e "You dealt ${RED}$move_dmg${NC} damage with $usr_move!"
-		else
-			echo -e "${BLUE}$enemy_name${NC} has dodged your attack!"
+		if [ $team_block -eq 0 ]; then
+			usr_atk=($(grep $usr_move $moves))
+			usr_dmg="${usr_atk[1]}"
+			usr_acc="${usr_atk[2]}"
+			if [ $(( $RANDOM % 100)) -lt $usr_acc ]; then
+				if [ $enem_block -eq 1 ]; then
+				partial=$(($usr_dmg / 5))
+				((enem_hp -= $partial))
+				echo -e "${BLUE}$enemy_name${NC} blocked your attack! and took $partial damage"
+				enem_block=0
+				else
+				((enem_hp -= $usr_dmg))
+				echo -e "You dealt ${RED}$move_dmg${NC} damage with $usr_move!"
+				fi
+			else
+				echo -e "${BLUE}$enemy_name${NC} has dodged your attack!"
+			fi
 		fi
-		enem_atk=($(grep $enem_move $moves))
-		enem_dmg="${move[1]}"
-		enem_acc="${move[2]}"
-		if [ $(( $RANDOM % 100)) -lt $enem_acc ]; then
-			((usr_hp -= $enem_dmg))
-			echo -e "${BLUE}$enemy_name${NC} dealt $enem_dmg damage with $enem_move!"
-		else
-			echo -e "You dodged ${BLUE}$enemy_name's${NC} attack!"
+		if [ -e $inventory/Locket -a $enem_hp -le 0 ]; then
+			break
+		fi
+		if [ $enem_block -eq 0 ]; then
+			enem_atk=($(grep $enem_move $moves))
+			enem_dmg="${enem_atk[1]}"
+			enem_acc="${enem_atk[2]}"
+			if [ $(( $RANDOM % 100)) -lt $enem_acc ]; then
+				if [ $team_block -eq 1 ]; then
+				partial=$(($enem_dmg / 5))
+				((usr_hp -= $partial))
+				echo -e "You blocked ${BLUE}$enemy_name's${NC} attack and took $partial damage!"
+				team_block=0
+				else
+				((usr_hp -= $enem_dmg))
+				echo -e "${BLUE}$enemy_name${NC} dealt $enem_dmg damage with $enem_move!"
+				fi
+			else
+				echo -e "You dodged ${BLUE}$enemy_name's${NC} attack!"
+			fi
 		fi
 	fi
 done
