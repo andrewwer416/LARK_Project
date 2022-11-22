@@ -54,5 +54,7 @@ unset inp
 unset opt2
 unset real_name
 unset RED
+unset BLUE
 unset NC
+unset partial
 return
