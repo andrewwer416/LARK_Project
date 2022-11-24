@@ -1,21 +1,21 @@
-Cloud_Walk 30 60 Summons his nimbus cloud to attack foes from above
-Staff_Spin 20 80 Swings his staff in a circle above his head hitting all foes
-Vanish 15 90 Disappears into a cloud of smoke
-Chariot_Charge 30 80 Summons his chariot to charge through foes
-War_Hammer 20 80 Slams his War hammer directly into the ground cracking the ground
-Phalanx 15 90 Surround himself by Spartans who defend him
-Eternal_Slumber 30 60 Uses his cold grasp to rip the soul of his foe out
-Scythe_Slash 20 80 Cuts a wide arc with his scythe
-Among_The_Dead 15 90 Clads himself in armor made by the souls of the dead
-Gate_Of_Hell 30 95 Stomps the ground to raise the final gate of the abyss
-Triple_Bite 30 95 Bites with all three of his heads
-Howl 30 95 Lets out an ear-piercing scream
-Sky's_The_Limit 30 60 Uses the sun to blind and strike his foes
-Winged_Slash 20 80 Strikes his foe with his wing
-Too_Close 15 90 Spins in a downward spiral striking his foes
-Holy_Grail 30 60 Summons the holy army
-Pendragon_Strike 20 80 Strikes with Excalibur
-Round_Table 15 90 Summons the Holy alliance
-Blood_Whip 30 60 Spills blood to create a whip
-Shriek 20 80 Rupture foes eardrums
-Horn_Plow 15 90 Rams foes with his horn
+Cloud_Walk 30 60 Summons_his_nimbus_cloud_to_attack_foes_from_above
+Staff_Spin 20 80 Swings_his_staff_in_a_circle_above_his_head_hitting_all_foes
+Vanish 15 90 Disappears_into_a_cloud_of_smoke
+Chariot_Charge 30 80 Summons_his_chariot_to_charge_through_foes
+War_Hammer 20 80 Slams_his_War_hammer_directly_into_the_ground_cracking_the_ground
+Phalanx 15 90 Surround_himself_by_Spartans_who_defend_him
+Eternal_Slumber 30 60 Uses_his_cold_grasp_to_rip_the_soul_of_his_foe_out
+Scythe_Slash 20 80 Cuts_a_wide_arc_with_his_scythe
+Among_The_Dead 15 90 Clads_himself_in_armor_made_by_the_souls_of_the_dead
+Gate_Of_Hell 30 95 Stomps_the_ground_to_raise_the_final_gate_of_the_abyss
+Triple_Bite 30 95 Bites_with_all_three_of_his_heads
+Howl 30 95 Lets_out_an_ear-piercing_scream
+Sky's_The_Limit 30 60 Uses_the_sun_to_blind_and_strike_his_foes
+Winged_Slash 20 80 Strikes_his_foe_with_his_wing
+Too_Close 15 90 Spins_in_a_downward_spiral_striking_his_foes
+Holy_Grail 30 60 Summons_the_holy_army
+Pendragon_Strike 20 80 Strikes_with_Excalibur
+Round_Table 15 90 Summons_the_Holy_alliance
+Blood_Whip 30 60 Spills_blood_to_create_a_whip
+Shriek 20 80 Rupture_foes'_eardrums
+Horn_Plow 15 90 Rams_foes_with_his_horn
