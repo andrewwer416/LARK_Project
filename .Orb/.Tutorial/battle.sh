@@ -51,12 +51,12 @@ do
 		;;
 	esac
 done
-move=($(grep $usr_move $moves))
-move_dmg="${move[1]}"
-move_acc="${move[2]}"
-if [ $(( $RANDOM % 100)) -lt $move_acc ] ; then
-	((enem_hp -= $move_dmg))
-	echo -e "You dealt ${RED}$move_dmg${NC} damage with $usr_move!"
+usr_atk=($(grep $usr_move $moves))
+usr_dmg="${usr_atk[1]}"
+usr_acc="${usr_atk[2]}"
+if [ $(( $RANDOM % 100)) -lt $usr_acc ] ; then
+	((enem_hp -= $usr_dmg))
+	echo -e "You dealt ${RED}$usr_dmg${NC} damage with $usr_move!"
 else
 	echo -e "${BLUE}$enemy_name${NC} has dodged your attack!"
 fi
@@ -157,7 +157,7 @@ do
 				enem_block=0
 				else
 				((enem_hp -= $usr_dmg))
-				echo -e "You dealt ${RED}$move_dmg${NC} damage with $usr_move!"
+				echo -e "You dealt ${RED}$usr_dmg${NC} damage with $usr_move!"
 				fi
 			else
 				echo -e "${BLUE}$enemy_name${NC} has dodged your attack!"
