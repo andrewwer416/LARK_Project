@@ -168,8 +168,8 @@ but can't make out what it is saying${NC}"
 			esac
 			;;
 		N|n)
-			echo "${RED}You begin to hear a loud shrieking and your vision fades.${NC}"
-			echo "${BLUE}$team_name${NC}: $character_name! Shit! Not again!"
+			echo -e "${RED}You begin to hear a loud shrieking and your vision fades.${NC}"
+			echo -e "${BLUE}$team_name${NC}: $character_name! Shit! Not again!"
 			cd Unknown
 			echo -e "${RED}You awake in a new area${NC}.\nType 'source intro.sh' to take a look around."
 			return
