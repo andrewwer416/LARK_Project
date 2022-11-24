@@ -60,7 +60,7 @@ Anguished screams sound out around.${NC}"
 			export team_name="Thanatos"
 		fi
 		sed -i '/Thanatos/d' $head/.Characters/Names.txt
-		sed -i '/Cerberus/d' $head/.Characters/Names.txt
+		sed -i '/Apollyon/d' $head/.Characters/Names.txt
 		export clan_name="Demonic"
 	;;
 esac
