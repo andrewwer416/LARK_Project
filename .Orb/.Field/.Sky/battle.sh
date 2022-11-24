@@ -100,7 +100,7 @@ do
 				enem_block=0
 				else
 				((enem_hp -= $usr_dmg))
-				echo -e "You dealt ${RED}$move_dmg${NC} damage with $usr_move!"
+				echo -e "You dealt ${RED}$usr_dmg${NC} damage with $usr_move!"
 				fi
 			else
 				echo -e "${BLUE}$enemy_name${NC} has dodged your attack!"
