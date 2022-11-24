@@ -97,7 +97,6 @@ do
 				partial=$(($usr_dmg / 5))
 				((enem_hp -= $partial))
 				echo -e "${BLUE}$enemy_name${NC} blocked your attack! and took $partial damage"
-				enem_block=0
 				else
 				((enem_hp -= $usr_dmg))
 				echo -e "You dealt ${RED}$usr_dmg${NC} damage with $usr_move!"
@@ -118,7 +117,6 @@ do
 				partial=$(($enem_dmg / 5))
 				((usr_hp -= $partial))
 				echo -e "You blocked ${BLUE}$enemy_name's${NC} attack and took $partial damage!"
-				team_block=0
 				else
 				((usr_hp -= $enem_dmg))
 				echo -e "${BLUE}$enemy_name${NC} dealt $enem_dmg damage with $enem_move!"
